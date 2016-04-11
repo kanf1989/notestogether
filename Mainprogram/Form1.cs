@@ -50,8 +50,14 @@ namespace Mainprogram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NotesComparer notesComparer = new NotesComparer(pathon.Text, pathfn.Text, TextBoxPathNewNote.Text);
-            notesComparer.compareNotes();
+            string path2ownNotes = pathon.Text;
+            string path2foreignNotes = pathfn.Text;
+            string path2saveNewNotes = TextBoxPathNewNote.Text;
+
+            if ((path2ownNotes != "") && (path2foreignNotes != "") && (path2saveNewNotes != "")) {
+                NotesComparer notesComparer = new NotesComparer();
+                notesComparer.compareNotes(path2ownNotes, path2foreignNotes, path2saveNewNotes);
+            }
         }
 
         private void button4_Click_1(object sender, EventArgs e)
